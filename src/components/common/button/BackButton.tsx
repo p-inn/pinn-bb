@@ -9,7 +9,7 @@ export default function BackButton() {
   return (
     <button
       onClick={() => router.back()}
-      className="text-2xl px-4 py-4"
+      className="text-2xl pr-4 py-4"
     >
       <BsChevronLeft />
     </button>
