@@ -8,16 +8,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      fontFamily: {
-      sans: ['var(--font-pretendard)'],
-    },
       colors: {
         mainColor: {
           500: '#81C784',
+          600: "#7DC180"
         },
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],  
+  plugins: [],
 };
 export default config;
