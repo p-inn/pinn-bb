@@ -1,4 +1,5 @@
 import BackButton from "@/components/common/button/BackButton";
+import CommonButton from "@/components/common/button/CommonButton";
 import CommonInput from "@/components/common/input/CommonInput";
 import SignInLogoSection from "@/components/common/logo/SignInLogoSection";
 
@@ -6,7 +7,7 @@ import SignInLogoSection from "@/components/common/logo/SignInLogoSection";
 export default function SignUpPage () {
   return (
     <div className="w-full max-w-[560px] mx-auto">
-      <div className="flex justify-start px-4">
+      <div className="flex justify-start">
         <BackButton />
       </div>
       <SignInLogoSection />
@@ -37,6 +38,9 @@ export default function SignUpPage () {
             type="tel"
             placeholder="휴대폰번호를 입력해주세용!"
           />
+          <CommonButton type="submit" classNames="bg-mainColor-500 hover:bg-mainColor-600 text-white">
+            가입하기
+            </CommonButton>
         </div>
         
       </form>
