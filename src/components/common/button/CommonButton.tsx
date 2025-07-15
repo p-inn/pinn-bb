@@ -9,7 +9,7 @@ import { useRouter } from 'next/navigation';
 const buttonStyles = cva('rounded-md transition-colors w-full', {
   variants: {
     variant: {
-      default: 'bg-primary-500 py-3',
+      default: 'py-3',
     },
   },
 
