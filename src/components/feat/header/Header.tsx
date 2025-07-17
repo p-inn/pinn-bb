@@ -5,6 +5,10 @@ import Link from "next/link";
 import { FaChartColumn, FaArrowRightFromBracket, FaList } from "react-icons/fa6";
 
 export default function Header() {
+  const icons = [
+  { icon: <FaChartColumn />, href: "/chart-page" },
+  { icon: <FaList />, href: "/budget-list" },
+];
 
   return (
     <div className="fixed inset-x-0 top-0 w-full z-50">
@@ -18,9 +22,13 @@ export default function Header() {
           />
         </div>
         <div className=" flex gap-2 sm:gap-5 text-mainColor-500 text-xl sm:text-2xl cursor-pointer mt-8">
-          <FaChartColumn />
-          <FaList />
-          <FaArrowRightFromBracket />
+          {icons.map(({ icon, href }, idx) => (
+            <Link key={href} href={href}>
+              {icon}
+            </Link>
+          ))}
+          {/* TODO : 로그아웃 함수 작성 후 onClick 이벤트 추가*/}
+          <FaArrowRightFromBracket /> 
         </div>
       </div>
     </div>
