@@ -26,7 +26,7 @@ export default function RootLayout({
     <html lang="ko" className={`${pretendard.variable}`}>
       <body className={pretendard.className}>
         <div>
-            <main className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6">
+            <main className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6 min-w-72">
               {children}
             </main>
         </div>
