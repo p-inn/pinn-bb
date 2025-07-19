@@ -10,6 +10,7 @@ const config: Config = {
     extend: {
       colors: {
         mainColor: {
+          300: '#CFEFD0',
           500: '#81C784',
           600: "#7DC180"
         },
