@@ -1,3 +1,4 @@
+import BudgetItem from "@/components/feat/budget-list/DailyBudget";
 import Header from "@/components/feat/header/Header";
 import MonthlyHeader from "@/components/feat/header/MonthlyHeader";
 import { FaRegMoneyBill1 } from "react-icons/fa6";
@@ -26,6 +27,17 @@ export default function BudgetListPage () {
           <option>최신순</option>
           <option>오래된순</option>
         </select>
+      </div>
+      <div className="mt-4">
+        {/* TODO: map으로 변경 및 목데이터 연결시 수정예정 */}
+        <BudgetItem />
+        <BudgetItem />
+        <BudgetItem />
+        <BudgetItem />
+        <BudgetItem />
+        <BudgetItem />
+        <BudgetItem />
+        <BudgetItem />
       </div>
     </div>
   )
