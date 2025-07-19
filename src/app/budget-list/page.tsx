@@ -19,7 +19,7 @@ export default function BudgetListPage () {
           <span>❤️ 지출</span>
         </div>
       </div>
-      <div className="w-16 sm:w-12 cursor-pointer mt-2">
+      <div className="w-6 sm:w-8 cursor-pointer mt-2">
         <select
           className="p-2 border border-gray-200 rounded-xl bg-white text-xs sm:text-base text-gray-800 focus:outline-none"
         >
