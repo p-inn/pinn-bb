@@ -5,12 +5,14 @@ const dividerStyles = cva('w-full my-4 p-4 bg-white shadow-sm border border-b-[0
 
 interface DividerProps {
   children?: ReactNode;
+  title: string;
   onClick?: () => void;
 }
 
 const Divider: React.FC<DividerProps> = ({ children, title }) => {
   return (
     <div className={`${dividerStyles()}`}>
+      <p className='font-semibold text-base sm:text-xl'>{title}</p>
       {children}
     </div>
   );
