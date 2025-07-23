@@ -1,5 +1,5 @@
 import BudgetItem from "@/components/feat/budget-list/DailyBudget";
-import Header from "@/components/feat/header/Header";
+import Header from "@/components/feat/header/CommonHeader";
 import MonthlyHeader from "@/components/feat/header/MonthlyHeader";
 import { FaRegMoneyBill1 } from "react-icons/fa6";
 

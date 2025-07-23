@@ -1,4 +1,4 @@
-import Header from "@/components/feat/header/Header";
+import Header from "@/components/feat/header/CommonHeader";
 
 export default function MainPage() {
   return (
