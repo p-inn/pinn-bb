@@ -12,7 +12,7 @@ interface DividerProps {
 const Divider: React.FC<DividerProps> = ({ children, title }) => {
   return (
     <div className={`${dividerStyles()}`}>
-      <p className='font-semibold text-base sm:text-xl'>{title}</p>
+      <p className='font-semibold text-base sm:text-xl mb-6'>{title}</p>
       {children}
     </div>
   );
