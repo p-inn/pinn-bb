@@ -14,6 +14,7 @@ const config: Config = {
           500: '#81C784',
           600: "#7DC180"
         },
+        expense: "#737ABB",
       },
     },
   },
