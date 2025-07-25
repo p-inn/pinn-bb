@@ -10,7 +10,7 @@ export default function BudgetItem() {
         {/* description */}
         <span>하노이 쌀국수</span>
       </div>
-      <span className="text-[#737ABB] font-semibold">- 30,000 원</span>
+      <span className="text-expense font-semibold">- 30,000 원</span>
     </div>
   )
 }
