@@ -10,11 +10,14 @@ const config: Config = {
     extend: {
       colors: {
         mainColor: {
+          300: '#CFEFD0',
           500: '#81C784',
+          600: "#7DC180"
         },
+        expense: "#737ABB",
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],  
+  plugins: [],
 };
 export default config;

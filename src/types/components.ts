@@ -1,0 +1,22 @@
+import { ReactNode } from "react";
+
+export type ButtonType = 'button' | 'submit' | 'reset';
+
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  children: string | ReactNode;
+  type?: ButtonType;
+  href?: string;
+  onClick?: () => void;
+  classNames?: string;
+  variant?: 'default';
+}
+
+export type InputType = 'text' | 'password' | 'email' | 'date' | 'number' | 'tel';
+export interface CommonInputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
+  type: InputType;
+  variant?: 'default' | 'disabled';
+  classNames?: string;
+  label?: string;
+}

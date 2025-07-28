@@ -25,10 +25,10 @@ export default function RootLayout({
     return (
     <html lang="ko" className={`${pretendard.variable}`}>
       <body className={pretendard.className}>
-        <div className="flex">
-          <div className="flex flex-col flex-1">
-            <main className="w-full bg-light">{children}</main>
-          </div>
+        <div>
+            <main className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6 min-w-72">
+              {children}
+            </main>
         </div>
       </body>
     </html>
