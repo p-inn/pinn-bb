@@ -19,8 +19,12 @@ export function useSignUp() {
 }
 
 export function useSignIn() {
+    const router = useRouter();
   return useMutation({
     mutationFn: signInEmail,
+    onSuccess: () => {
+    router.push("/dashboard-page");
+  },
   onError: (error) => {
   if (error.message.includes("Email not confirmed")) {
     toast.error("가입하신 이메일로 이메일 인증을 완료해 주세요!");
