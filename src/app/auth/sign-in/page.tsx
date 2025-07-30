@@ -10,7 +10,7 @@ export default function SignInPage () {
         <BackButton />
       </div>
       <SignInLogoSection />
-      <div className="flex flex-col items-center justify-center">
+      <div className="mt-20 flex flex-col items-center justify-center gap-4">
         <CommonInput
           classNames="bg-gray-100 border-none"
           type="text"
