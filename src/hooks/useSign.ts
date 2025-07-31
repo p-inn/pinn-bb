@@ -29,11 +29,7 @@ export function useSignIn() {
     router.push("/dashboard-page");
   },
   onError: (error) => {
-  if (error.message.includes("Invalid login credentials")) {
-    toast.error("가입하신 이메일로 이메일 인증을 완료해 주세요!");
-  } else {
-    toast.error(error.message || "로그인에 실패했습니다 💦");
-  }
+    toast.error("이메일 인증 또는 로그인 정보를 확인해 주세요 💦");
 },
   });
 }
