@@ -9,9 +9,12 @@ export function useSignUp() {
   return useMutation({
     mutationFn: signUp,
     onSuccess: () => {
+    toast.info("가입하신 이메일로 인증정보가 발송되었습니다 📨")
     toast.success('회원가입이 완료되었습니다!');
-    router.push("/auth/sign-in");
-  },
+    setTimeout(() => {
+        router.push("/auth/sign-in");
+      }, 1000); // toast 2개 사용 위한 delay ⏳
+      },
     onError: (error) => {
       toast.error(error.message || "회원가입에 실패했습니다 💦");
   }},
