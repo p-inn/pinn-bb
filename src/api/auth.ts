@@ -15,6 +15,9 @@ export const signInGoogle = async () => {
   try {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
+      options: {
+        redirectTo: `${window.location.origin}/dashboard-page`,
+      },
     });
     if (error) console.error(error);
   } catch (error) {
