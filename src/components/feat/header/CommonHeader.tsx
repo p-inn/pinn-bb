@@ -1,10 +1,11 @@
 "use client";
 
-// import { useRouter } from "next/navigation";
+import { useSignOut } from "@/hooks/useSign";
 import Link from "next/link";
 import { FaChartColumn, FaArrowRightFromBracket, FaList } from "react-icons/fa6";
 
 export default function Header() {
+  const { mutate: signOut } = useSignOut();
   const icons = [
   { icon: <FaChartColumn />, href: "/chart-page" },
   { icon: <FaList />, href: "/budget-list" },
@@ -27,8 +28,7 @@ export default function Header() {
               {icon}
             </Link>
           ))}
-          {/* TODO : 로그아웃 함수 작성 후 onClick 이벤트 추가*/}
-          <FaArrowRightFromBracket /> 
+          <FaArrowRightFromBracket onClick={() => signOut()}/> 
         </div>
       </div>
     </div>
