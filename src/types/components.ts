@@ -32,3 +32,10 @@ export interface SignUpData extends SignInData {
   nickName?: string;
   tel?: string;
 }
+
+export interface CommonModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  children: React.ReactNode;
+  className?: string;
+}
