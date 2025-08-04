@@ -2,7 +2,7 @@ import { cva } from 'class-variance-authority';
 import { CommonInputProps } from '@/types/components';
 import { cn } from '@/utils/cn';
 
-const CommonInputStyle = cva('pl-3 py-3 rounded-md w-full focus:outline-none', {
+const CommonInputStyle = cva('p-3 rounded-md w-full focus:outline-none', {
   variants: {
     variant: {
       default: 'bg-white border border-solid border-border-300',
