@@ -5,14 +5,27 @@ import { useModalStore } from "@/store/modalStore";
 import Link from "next/link";
 import { FaChartColumn, FaArrowRightFromBracket, FaList, FaRegSquarePlus } from "react-icons/fa6";
 import AddBudgetModal from "../budget-list/AddBudgetModal";
+import { BudgetListData } from "@/types/form";
+import { toast } from "sonner";
+import { useAddBudget } from "@/hooks/useBudget";
 
 export default function Header() {
   const { openAddBudgetModal } = useModalStore();
   const { mutate: signOut } = useSignOut();
+  const { mutate: addBudget, isPending } = useAddBudget();
+
   const icons = [
   { icon: <FaChartColumn />, href: "/chart-page" },
   { icon: <FaList />, href: "/budget-list" },
 ];
+
+  const handleAddBudget = (data: Omit<BudgetListData, "id">) => {
+    addBudget(data, {
+      onSuccess: () => toast.success("등록에 성공하였습니다 💸"),
+      onError: (err) => toast.error("등록에 실패하였습니다 💦" + err.message),
+    });
+  };
+
 
   return (
     <>
@@ -37,7 +50,7 @@ export default function Header() {
           </div>
         </div>
       </div>
-      <AddBudgetModal />
+      <AddBudgetModal onSubmit={handleAddBudget} isPending={isPending} />
     </>
   );
 }
