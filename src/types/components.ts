@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, SelectHTMLAttributes } from "react";
 
 export type ButtonType = 'button' | 'submit' | 'reset';
 
@@ -12,7 +12,7 @@ export interface ButtonProps
   variant?: 'default';
 }
 
-export type InputType = 'text' | 'password' | 'email' | 'date' | 'number' | 'tel' | 'name' | 'passwordCheck';
+export type InputType = 'text' | 'password' | 'email' | 'date' | 'number' | 'tel' | 'name' | 'passwordCheck' | 'select';
 export interface CommonInputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
   type: InputType;
@@ -38,4 +38,9 @@ export interface CommonModalProps {
   onClose: () => void;
   children: React.ReactNode;
   className?: string;
+}
+
+export interface CommonSelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
+  classNames?: string;
+  children?: React.ReactNode;
 }
