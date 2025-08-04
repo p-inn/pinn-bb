@@ -42,7 +42,7 @@ export default function AddBudgetModal({ onSubmit, isPending }: AddBudgetModalPr
           </label>
         </div>
         <ValidationError error={errors.budget_type?.message} />
-
+        {/* TODO: 나중에 공통 컴포넌트 분리 */}
         {/* 날짜 */}
         <label className="text-sm font-bold text-mainColor-500 pt-1">일자</label>
         <CommonInput
