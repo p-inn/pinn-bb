@@ -1,5 +1,6 @@
 import { supabase } from "@/supabase/supabaseClient";
-import { SignInData, SignUpData } from "@/types/components";
+import { SignInData, SignUpData } from "@/types/user";
+
 
 export const signInEmail = async (signInData: SignInData) => {
   const { data, error } = await supabase.auth.signInWithPassword({
@@ -8,7 +9,7 @@ export const signInEmail = async (signInData: SignInData) => {
   });
 
   if (error) throw error;
-  return data;
+  return { id: data.user.id, email: data.user.email };
 };
 
 export const signInGoogle = async () => {

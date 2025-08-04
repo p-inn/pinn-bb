@@ -2,11 +2,11 @@
 
 import { useForm } from "react-hook-form";
 import CommonInput from "@/components/common/input/CommonInput";
-import { SignUpData } from "@/types/components";
 import { useSignUp } from "@/hooks/useSign";
 import CommonButton from "@/components/common/button/CommonButton";
 import ValidationError from "./ValidationError";
 import { EMAIL_RULE, NICKNAME_RULE, PASSWORD_CHECK_RULE, PASSWORD_RULE, TEL_RULE } from "./useValidationRules";
+import { SignUpData } from "@/types/user";
 
 export default function SignUpForm () {
   const { register, handleSubmit, watch, formState: { errors } } = useForm<SignUpData>({

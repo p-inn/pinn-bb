@@ -21,18 +21,6 @@ export interface CommonInputProps
   label?: string;
 }
 
-export interface SignInData {
-  email: string;
-  password: string;
-}
-
-export interface SignUpData extends SignInData {
-  name?: string;
-  passwordCheck?: string;
-  nickName?: string;
-  tel?: string;
-}
-
 export interface CommonModalProps {
   isOpen: boolean;
   onClose: () => void;
