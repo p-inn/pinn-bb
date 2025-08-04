@@ -3,6 +3,7 @@ import localFont from 'next/font/local'
 import "./globals.css";
 import ReactQueryProvider from "@/provider/ReactQueryProvider";
 import { Toaster } from 'sonner';
+import ClientAuthProvider from "@/provider/ClientAuthProvider";
 
 const pretendard = localFont({
   src: '../fonts/pretendard/PretendardVariable.woff2',
@@ -27,17 +28,19 @@ export default function RootLayout({
     return (
     <html lang="ko" className={`${pretendard.variable}`}>
       <body className={pretendard.className}>
-        <ReactQueryProvider>
-            <main className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6 min-w-72">
-              {children}
-              <Toaster
-                position="top-right"
-                richColors
-                duration={2500}
-                expand
-              />
-            </main>
-        </ReactQueryProvider>
+        <ClientAuthProvider>
+          <ReactQueryProvider>
+              <main className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6 min-w-72">
+                {children}
+                <Toaster
+                  position="top-right"
+                  richColors
+                  duration={2500}
+                  expand
+                />
+              </main>
+          </ReactQueryProvider>
+        </ClientAuthProvider>
       </body>
     </html>
   )
