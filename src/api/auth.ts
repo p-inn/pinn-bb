@@ -9,7 +9,7 @@ export const signInEmail = async (signInData: SignInData) => {
   });
 
   if (error) throw error;
-  return data;
+  return { id: data.user.id, email: data.user.email };
 };
 
 export const signInGoogle = async () => {
