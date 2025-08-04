@@ -3,7 +3,7 @@
 import CommonButton from "@/components/common/button/CommonButton";
 import CommonInput from "@/components/common/input/CommonInput";
 import { useSignIn } from "@/hooks/useSign";
-import { SignInData } from "@/types/components";
+import { SignInData } from "@/types/user";
 import { useForm } from "react-hook-form";
 
 export default function SignInForm() {
