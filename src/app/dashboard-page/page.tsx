@@ -8,9 +8,7 @@ export default function MainPage() {
   return (
     <div>
       <Header />
-      <div className="flex justify-center pt-20 sm:justify-start">
-        <MonthlyHeader />        
-      </div>
+      <MonthlyHeader />
       <div className="flex flex-col gap-4 sm:flex-row">
         <div className="flex flex-col gap-4 flex-1">
           <div className="flex flex-col gap-4 sm:flex-row">

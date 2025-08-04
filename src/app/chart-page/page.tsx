@@ -8,9 +8,7 @@ export default function ChartPage () {
   return (
     <div>
       <Header />
-      <div className="flex justify-center pt-20 sm:justify-start">
-        <MonthlyHeader />        
-      </div>
+      <MonthlyHeader />
       <div className="flex flex-col justify-center w-full sm:w-3/4 mx-auto">
         <Divider title="카테고리별 지출">
           <DonutChart />

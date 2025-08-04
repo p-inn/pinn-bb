@@ -5,7 +5,7 @@ export type BudgetCategory =
 
 export interface BudgetListData {
   id: number;
-  budgetType: BudgetType;
+  budget_type: BudgetType;
   description: string;
   category: BudgetCategory;
   date: string;      // ISO 문자열 대비

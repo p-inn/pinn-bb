@@ -7,9 +7,7 @@ export default function BudgetListPage () {
   return (
     <div>
       <Header />
-      <div className="flex justify-center pt-20 sm:justify-start">
-        <MonthlyHeader />        
-      </div>
+      <MonthlyHeader />
       <div className="flex justify-between">
         <div className="text-base sm:text-lg flex gap-2 items-center">
           <FaRegMoneyBill1 className="text-mainColor-500 text-xl sm:text-2xl"/>

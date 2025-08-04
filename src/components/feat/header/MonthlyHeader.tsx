@@ -26,14 +26,16 @@ export default function MonthlyHeader({ onMonthChange }: MonthlyHeaderProps) {
   
   // TODO: Mockup 테스트 후 props 받도록 수정
   return (
-    <div className="flex items-center justify-center gap-3 py-3 text-base sm:text-xl font-medium">
-      <button onClick={goPrevMonth} className="text-mainColor-500 text-xl px-2">
-        <FaAngleLeft />
-      </button>
-      <span>{monthText}</span>
-      <button onClick={goNextMonth} className="text-mainColor-500 text-2xl px-2">
-        <FaAngleRight />
-      </button>
+    <div className="flex pt-20 justify-between items-center text-xl sm:text-2xl cursor-pointer">
+      <div className="flex items-center justify-center gap-3 py-3 text-base sm:text-xl font-medium">
+        <button onClick={goPrevMonth} className="text-mainColor-500 px-2">
+          <FaAngleLeft />
+        </button>
+        <span>{monthText}</span>
+        <button onClick={goNextMonth} className="text-mainColor-500 px-2">
+          <FaAngleRight />
+        </button>
+      </div>
     </div>
   );
 }
