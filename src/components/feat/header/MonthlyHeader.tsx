@@ -1,30 +1,16 @@
 "use client";
 
-import { useState } from "react";
-import dayjs from "dayjs";
+import { useMonthStore } from "@/store/monthStore";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 
-interface MonthlyHeaderProps {
-  onMonthChange?: () => void;
-}
+export default function MonthlyHeader() {
+  const { selectedMonth, setSelectedMonth } = useMonthStore();
 
-export default function MonthlyHeader({ onMonthChange }: MonthlyHeaderProps) {
-  const [currentMonth, setCurrentMonth] = useState(dayjs());
+  const goPrevMonth = () => setSelectedMonth(selectedMonth.subtract(1, "month"));
+  const goNextMonth = () => setSelectedMonth(selectedMonth.add(1, "month"));
 
-  const goPrevMonth = () => {
-    const prev = currentMonth.subtract(1, "month");
-    setCurrentMonth(prev);
-    onMonthChange?.(prev);
-  };
-  const goNextMonth = () => {
-    const next = currentMonth.add(1, "month");
-    setCurrentMonth(next);
-    onMonthChange?.(next);
-  };
+  const monthText = selectedMonth.format("YYYY년 M월");
 
-  const monthText = currentMonth.format("YYYY년 M월");
-  
-  // TODO: Mockup 테스트 후 props 받도록 수정
   return (
     <div className="flex pt-20 justify-between items-center text-xl sm:text-2xl cursor-pointer">
       <div className="flex items-center justify-center gap-3 py-3 text-base sm:text-xl font-medium">
