@@ -33,11 +33,13 @@ export default function Header() {
         <div className="flex items-center bg-mainColor-300 justify-between h-20 px-3 sm:px-6">
           <div className="hidden sm:block w-20" />
           <div className="flex-1 flex sm:justify-center justify-start min-w-[120px] sm:min-w-[180px]">
-            <img
-              src="/PinnBB-Logo.png"
-              alt="PinnBB Logo"
-              className="w-[120px] sm:w-[180px] h-auto mr-2 sm:mr-0"
-            />
+            <Link href="/dashboard-page">
+              <img
+                src="/PinnBB-Logo.png"
+                alt="PinnBB Logo"
+                className="w-[120px] sm:w-[180px] h-auto mr-2 sm:mr-0"
+              />
+            </Link>
           </div>
           <div className="flex gap-2 sm:gap-5 text-mainColor-500 text-xl sm:text-2xl cursor-pointer mt-8">
             <FaRegSquarePlus onClick={openAddBudgetModal} className="hover:text-mainColor-600" />
