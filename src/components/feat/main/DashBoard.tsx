@@ -3,9 +3,11 @@
 import Divider from "@/components/common/divider/CommonDivider";
 import BudgetItem from "../budget-list/DailyBudget";
 import DonutChart from "../chart/DonutChart";
+import { useBudgetList } from "@/hooks/useBudget";
 import MonthlyHeader from "../header/MonthlyHeader";
 
 export default function MainDashBoard() {
+  const { data: budgets, isLoading } = useBudgetList();
   return ( 
     <>
       <MonthlyHeader />
