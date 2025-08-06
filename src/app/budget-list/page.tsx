@@ -1,13 +1,11 @@
 import BudgetItem from "@/components/feat/budget-list/DailyBudget";
 import Header from "@/components/feat/header/CommonHeader";
-import MonthlyHeader from "@/components/feat/header/MonthlyHeader";
 import { FaRegMoneyBill1 } from "react-icons/fa6";
 
 export default function BudgetListPage () {
   return (
     <div>
       <Header />
-      <MonthlyHeader />
       <div className="flex justify-between">
         <div className="text-base sm:text-lg flex gap-2 items-center">
           <FaRegMoneyBill1 className="text-mainColor-500 text-xl sm:text-2xl"/>
