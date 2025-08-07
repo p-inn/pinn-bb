@@ -19,8 +19,6 @@ export default function BudgetList() {
   const [type, setType] = useState<BudgetType>("all");
   const [sortType, setSortType] = useState<SortType>("latest");
 
-  if (!user?.id || !selectedMonth) return null;
-
   const filteredBudgets = useMemo(() => {
     if (!budgets) return [];
     let filtered = budgets;
@@ -36,7 +34,8 @@ export default function BudgetList() {
     });
     return filtered;
   }, [budgets, type, sortType]);
-
+  
+  if (!user?.id || !selectedMonth) return null;
   return (
     <>
       <MonthlyHeader />

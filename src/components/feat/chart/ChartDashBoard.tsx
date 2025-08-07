@@ -10,6 +10,7 @@ import { useMonthStore } from "@/store/monthStore";
 import { useMemo } from "react";
 import MonthlyHeader from "../header/MonthlyHeader";
 import dayjs from "dayjs";
+import SectionMotion from "@/components/common/motion/SectionMotion";
 
 export default function ChartDashBoard () {
   const { user } = useAuthStore();
@@ -71,12 +72,16 @@ export default function ChartDashBoard () {
     <>
       <div className="flex flex-col gap-4 justify-center w-full sm:w-3/4 mx-auto">
         <MonthlyHeader />
-        <Divider title="카테고리별 지출">
-          <DonutChart data={categoryData} />
-        </Divider>
-        <Divider title="월별 수입/지출">
-        <PayChart data={payChartData} />
-        </Divider>
+        <SectionMotion key={selectedMonth + "donut"}>
+          <Divider title="카테고리별 지출">
+            <DonutChart data={categoryData} />
+          </Divider>
+        </SectionMotion>  
+        <SectionMotion key={selectedYear + "pay"} delay={0.18}>
+          <Divider title="월별 수입/지출">
+            <PayChart data={payChartData} />
+          </Divider>
+        </SectionMotion>
       </div>
     </>
   )
