@@ -1,8 +1,9 @@
 import { cva } from 'class-variance-authority';
-import { CommonInputProps } from '@/types/components';
 import { cn } from '@/utils/cn';
+import { CommonSelectProps } from '@/types/components';
 
-const CommonInputStyle = cva('p-3 rounded-md w-full focus:outline-none', {
+const CommonSelectStyle = cva(
+  'p-3 rounded-md w-full focus:outline-none bg-white border border-solid border-border-300', {
   variants: {
     variant: {
       default: 'bg-white border border-solid border-border-300',
@@ -16,17 +17,14 @@ const CommonInputStyle = cva('p-3 rounded-md w-full focus:outline-none', {
   },
 });
 
-export default function CommonInput({
-  type = 'text',
-  variant,
+export default function CommonSelect({
   classNames,
+  children,
   ...htmlProps
-}: CommonInputProps) {
+}: CommonSelectProps) {
   return (
-    <input
-      type={type}
-      className={cn(CommonInputStyle({ variant }), classNames)}
-      {...htmlProps}
-    />
+    <select className={cn(CommonSelectStyle(), classNames)} {...htmlProps}>
+      {children}
+    </select>
   );
 }
