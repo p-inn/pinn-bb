@@ -29,7 +29,7 @@ export default function AddBudgetModal({ onSubmit, isPending }: AddBudgetModalPr
 
   return (
     <CommonModal isOpen={isAddBudgetModalOpen} onClose={closeAddBudgetModal}>
-      <form onSubmit={handleSubmit(handleFormSubmit)} className="flex flex-col gap-4 p-4 w-full min-w-[220px] max-w-[350px] mx-auto">
+      <form onSubmit={handleSubmit(handleFormSubmit)} className="flex flex-col p-4 w-full max-w-[350px] mx-auto text-black/80">
         {/* 수입/지출 라디오 */}
         <div className="flex gap-3">
           <label className="flex items-center gap-1">
@@ -44,7 +44,7 @@ export default function AddBudgetModal({ onSubmit, isPending }: AddBudgetModalPr
         <ValidationError error={errors.budget_type?.message} />
         {/* TODO: 나중에 공통 컴포넌트 분리 */}
         {/* 날짜 */}
-        <label className="text-sm font-bold text-mainColor-500 pt-1">일자</label>
+        <label className="text-sm font-bold text-mainColor-500 pt-1 my-2">일자</label>
         <CommonInput
           type="date"
           {...register("date", { required: "‼️ 날짜를 입력해 주세요." })}
@@ -52,7 +52,7 @@ export default function AddBudgetModal({ onSubmit, isPending }: AddBudgetModalPr
         <ValidationError error={errors.date?.message} />
 
         {/* 카테고리 셀렉트 */}
-        <label className="text-sm font-bold text-mainColor-500 pt-1">카테고리</label>
+        <label className="text-sm font-bold text-mainColor-500 pt-1 my-2">카테고리</label>
         <CommonSelectInput
           {...register("category", { required: "‼️ 카테고리를 선택해 주세요." })}
         >
@@ -64,9 +64,10 @@ export default function AddBudgetModal({ onSubmit, isPending }: AddBudgetModalPr
         <ValidationError error={errors.category?.message} />
 
         {/* 금액 */}
-        <label className="text-sm font-bold text-mainColor-500 pt-1">금액</label>
+        <label className="text-sm font-bold text-mainColor-500 pt-1 my-2">금액</label>
         <CommonInput
           type="number"
+          placeholder="금액을 입력해주세요 💸"
           min={1}
           {...register("amount", {
             required: "‼️ 금액을 입력해 주세요.",
@@ -77,15 +78,15 @@ export default function AddBudgetModal({ onSubmit, isPending }: AddBudgetModalPr
         <ValidationError error={errors.amount?.message} />
 
         {/* 설명 */}
-        <label className="text-sm font-bold text-mainColor-500 pt-1">설명</label>
+        <label className="text-sm font-bold text-mainColor-500 pt-1 my-2">설명</label>
         <CommonInput
           type="text"
           {...register("description")}
-          placeholder="설명"
+          placeholder="설명을 작성해주세요 ✍🏻"
         />
         <ValidationError error={errors.description?.message} />
         {/* 버튼 */}
-        <CommonButton type="submit" classNames="bg-mainColor-500 hover:bg-mainColor-600 text-white">
+        <CommonButton type="submit" classNames="bg-mainColor-500 hover:bg-mainColor-600 text-white mt-4">
           {isPending ? "등록 중..." : "등록하기"}
         </CommonButton>
       </form>
