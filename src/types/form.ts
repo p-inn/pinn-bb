@@ -1,4 +1,7 @@
-export type BudgetType = 'income' | 'expense';
+export type BudgetType = 'all' | 'income' | 'expense';
+
+export type SortType = "latest" | "oldest";
+
 export type BudgetCategory =
   | 'food' | 'etc' | 'transport' | 'health'
   | 'salary' | 'living' | 'allowance' | 'culture';
