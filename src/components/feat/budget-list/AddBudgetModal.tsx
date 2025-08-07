@@ -47,6 +47,7 @@ export default function AddBudgetModal({ onSubmit, isPending }: AddBudgetModalPr
         <label className="text-sm font-bold text-mainColor-500 pt-1 my-2">일자</label>
         <CommonInput
           type="date"
+          placeholder="날짜를 선택해주세요!"
           {...register("date", { required: "‼️ 날짜를 입력해 주세요." })}
         />
         <ValidationError error={errors.date?.message} />
@@ -56,7 +57,7 @@ export default function AddBudgetModal({ onSubmit, isPending }: AddBudgetModalPr
         <CommonSelectInput
           {...register("category", { required: "‼️ 카테고리를 선택해 주세요." })}
         >
-          <option value="">카테고리 선택</option>
+          <option value="" className="p-3">카테고리 선택</option>
           {CATEGORY_OPTIONS.map(({ value, label }) => (
             <option key={value} value={value}>{label}</option>
           ))}
