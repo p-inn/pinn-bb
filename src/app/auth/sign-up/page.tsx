@@ -5,7 +5,7 @@ import SignUpForm from "@/components/feat/auth/SignUpForm";
 
 export default function SignUpPage () {
   return (
-    <div className="w-full max-w-[560px] mx-auto bg-white">
+    <div className="w-full min-h-screen max-w-[560px] mx-auto bg-white">
       <div className="flex justify-start">
         <BackButton />
       </div>
