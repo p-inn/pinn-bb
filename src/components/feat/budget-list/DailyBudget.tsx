@@ -1,16 +1,31 @@
+import { BudgetListData } from "@/types/form";
 import CategoryBadge from "../CategoryBadge";
+import dayjs from "dayjs";
 
-export default function BudgetItem() {
+export default function BudgetItem({
+  date,
+  category,
+  description,
+  amount,
+  budget_type,
+}: BudgetListData) {
   return (
     <div className="flex justify-between items-center pb-4 min-w-0 text-sm sm:text-base my-4 text-gray-500">
       <div className="flex justify-start items-center gap-2">
-        <span>2025.08.12</span>
+        <span>{dayjs(date).format("MM.DD")}</span>
         {/* category-badge */}
-        <CategoryBadge type="health" />
+        <CategoryBadge type={category} />
         {/* description */}
-        <span>하노이 쌀국수</span>
+        <span>{description}</span>
       </div>
-      <span className="text-expense font-semibold">- 30,000 원</span>
+      <span
+        className={`font-semibold ${
+          budget_type === "expense" ? "text-expense" : "text-mainColor-500"
+        }`}
+      >
+        {budget_type === "expense" ? "- " : "+ "}
+        {(amount ?? 0).toLocaleString()} 원
+      </span>
     </div>
   )
 }
