@@ -30,7 +30,7 @@ export default function RootLayout({
       <body className={pretendard.className}>
         <ClientAuthProvider>
           <ReactQueryProvider>
-              <main className="w-full h-screen bg-white text-black max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6 min-w-72">
+              <main className="w-full h-full bg-white text-black max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6 min-w-72">
                 {children}
                 <Toaster
                   position="top-right"
