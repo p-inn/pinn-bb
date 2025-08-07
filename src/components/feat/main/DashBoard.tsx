@@ -9,6 +9,7 @@ import { useAuthStore } from "@/store/authStore";
 import { useMonthStore } from "@/store/monthStore";
 import { CATEGORY_OPTIONS } from "@/constants/categoryOptions";
 import { useMemo } from "react";
+import SectionMotion from "@/components/common/motion/SectionMotion";
 
 export default function MainDashBoard() {
   const { user } = useAuthStore();
@@ -36,37 +37,43 @@ export default function MainDashBoard() {
     <>
       <MonthlyHeader />
       <div className="flex flex-col gap-4 sm:flex-row">
-        <div className="flex flex-col gap-4 flex-1">
-          <div className="flex flex-col gap-4 sm:flex-row">
-            <Divider title="수입" classNames="min-w-[200px] flex-1">
-              <span className="block text-center pb-3 text-lg sm:text-xl font-semibold text-mainColor-500">
-                {budgets
-                  ?.filter(b => b.budget_type === "income")
-                  .reduce((acc, cur) => acc + cur.amount, 0)
-                  .toLocaleString()} 원
-              </span>
+        <div className="flex flex-col gap-4">
+          <SectionMotion delay={0.05}>
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <Divider title="수입" classNames="min-w-[200px] flex-1">
+                <span className="block text-center pb-3 text-lg sm:text-xl font-semibold text-mainColor-500">
+                  {budgets
+                    ?.filter(b => b.budget_type === "income")
+                    .reduce((acc, cur) => acc + cur.amount, 0)
+                    .toLocaleString()} 원
+                </span>
+              </Divider>
+              <Divider title="지출" classNames="min-w-[200px] flex-1">
+                <span className="block text-center pb-3 text-lg sm:text-xl font-semibold text-expense">
+                  {budgets
+                    ?.filter(b => b.budget_type === "expense")
+                    .reduce((acc, cur) => acc + cur.amount, 0)
+                    .toLocaleString()} 원
+                </span>
+              </Divider>
+            </div>
+          </SectionMotion>
+          <SectionMotion delay={0.22}>
+            <Divider title="이번달의 수입/지출 내역" classNames="h-full">
+              {budgets && budgets.length > 0
+                ? budgets.slice(0, 4).map((b) => (
+                    <BudgetItem key={b.id} {...b} />
+                  ))
+                : <div>아직 내역이 없어요 ✍🏻</div>
+              }
             </Divider>
-            <Divider title="지출" classNames="min-w-[200px] flex-1">
-              <span className="block text-center pb-3 text-lg sm:text-xl font-semibold text-expense">
-                {budgets
-                  ?.filter(b => b.budget_type === "expense")
-                  .reduce((acc, cur) => acc + cur.amount, 0)
-                  .toLocaleString()} 원
-              </span>
-            </Divider>
-          </div>
-          <Divider title="이번달의 수입/지출 내역" classNames="h-full">
-            {budgets && budgets.length > 0
-              ? budgets.slice(0, 4).map((b) => (
-                  <BudgetItem key={b.id} {...b} />
-                ))
-              : <div>아직 내역이 없어요 ✍🏻</div>
-            }
-          </Divider>
+          </SectionMotion>
         </div>
-        <Divider title="카테고리별 지출">
-          <DonutChart data={categoryData} />
-        </Divider>
+        <SectionMotion delay={0.37}>
+          <Divider title="카테고리별 지출">
+            <DonutChart data={categoryData} />
+          </Divider>
+        </SectionMotion>  
     </div>
   </>
   )
