@@ -36,7 +36,7 @@ export default function MainDashBoard() {
   return ( 
     <>
       <MonthlyHeader />
-      <div className="flex flex-col gap-4 sm:flex-row">
+      <div className="flex flex-col gap-4 sm:flex-row bg-white text-black">
         <div className="flex flex-col gap-4">
           <SectionMotion delay={0.05}>
             <div className="flex flex-col gap-4 sm:flex-row">
