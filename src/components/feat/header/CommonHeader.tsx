@@ -29,7 +29,7 @@ export default function Header() {
 
   return (
     <>
-      <div className="fixed inset-x-0 top-0 w-full">
+      <div className="fixed inset-x-0 top-0 w-full z-30">
         <div className="flex items-center bg-mainColor-300 justify-between h-20 px-3 sm:px-6">
           <div className="hidden sm:block w-20" />
           <div className="flex-1 flex sm:justify-center justify-start min-w-[120px] sm:min-w-[180px]">
