@@ -6,7 +6,7 @@ import SignInForm from "@/components/feat/auth/SignInForm";
 
 export default function SignInPage () {
   return (
-    <div className="w-full max-w-[560px] mx-auto">
+    <div className="w-full max-w-[560px] mx-auto bg-white">
       <div className="flex justify-start px-4">
         <BackButton />
       </div>
