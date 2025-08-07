@@ -32,7 +32,7 @@ export default function CategoryBadge({ type }: CategoryBadgeProps) {
   return (
     <div
       className={cn(
-        "w-[70px] sm:w-[90px] px-1 py-2 rounded-full text-white text-center font-bold text-xs sm:text-sm",
+        "w-[55px] sm:w-[70px] px-1 py-2 rounded-full text-white text-center font-bold text-xs sm:text-sm",
         colorMap[type],
       )}
     >
