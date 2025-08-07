@@ -1,7 +1,7 @@
 "use client";
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { addBudget, fetchBudgetsByMonth } from "@/api/budget";
+import { addBudget, fetchBudgetsByMonth, fetchBudgetsByYear } from "@/api/budget";
 import { BudgetListData } from "@/types/form";
 import dayjs from "dayjs";
 
@@ -27,5 +27,13 @@ export function useBudgetList(selectedMonth?: dayjs.Dayjs, userId?: string) {
         ? fetchBudgetsByMonth(selectedMonth.format("YYYY-MM"), userId)
         : [],
     enabled: !!userId && !!selectedMonth,
+  });
+}
+
+export function useBudgetYearList(selectedYear: number, userId?: string) {
+  return useQuery({
+    queryKey: ["budgets-year", userId, selectedYear],
+    queryFn: () => (userId ? fetchBudgetsByYear(userId, selectedYear) : []),
+    enabled: !!userId && !!selectedYear,
   });
 }
