@@ -3,14 +3,20 @@ import { BudgetListData } from "@/types/form";
 import dayjs from "dayjs";
 
 export const addBudget = async (newBudget: Omit<BudgetListData, "id">) => {
-  const { data, error } = await supabase
-    .from("budgets")
-    .insert([newBudget])
-    .select();
+  const { data: { user } } = await supabase.auth.getUser();
+    console.log("user:", user);
+    if (!user?.id) throw new Error("로그인이 필요해요!");
 
-  if (error) throw error;
-  return data?.[0];
-};
+    const payload = { ...newBudget, user_id: user.id };
+    console.log("payload:", payload);
+    const { data, error } = await supabase
+      .from("budgets")
+      .insert([payload])
+      .select();
+
+    if (error) throw error;
+    return data?.[0];
+  };
 
 export async function fetchBudgetsByMonth(ym: string, userId: string) {
   const { data, error } = await supabase
