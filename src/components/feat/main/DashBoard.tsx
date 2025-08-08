@@ -61,7 +61,8 @@ export default function MainDashBoard() {
           <SectionMotion delay={0.22}>
             <Divider title="이번달의 수입/지출 내역" classNames="h-full">
               {budgets && budgets.length > 0
-                ? budgets.slice(0, 4).map((b) => (
+                ? budgets.slice()
+                    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()).slice(0, 4).map((b) => (
                     <BudgetItem key={b.id} {...b} />
                   ))
                 : <div>아직 내역이 없어요 ✍🏻</div>
