@@ -1,6 +1,6 @@
 'use client';
 
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import CommonButton from "@/components/common/button/CommonButton";
 import CommonInput from "@/components/common/input/CommonInput";
 import CommonSelectInput from "@/components/common/input/CommonSelectInput";
@@ -17,7 +17,7 @@ interface AddBudgetModalProps {
 
 export default function AddBudgetModal({ onSubmit, isPending }: AddBudgetModalProps) {
   const { isAddBudgetModalOpen, closeAddBudgetModal } = useModalStore();
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<BudgetListData>({
+  const { register, handleSubmit, formState: { errors }, reset, control } = useForm<BudgetListData>({
     mode: "onChange",
   });
 
@@ -66,15 +66,30 @@ export default function AddBudgetModal({ onSubmit, isPending }: AddBudgetModalPr
 
         {/* 금액 */}
         <label className="text-sm font-bold text-mainColor-500 pt-1 my-2">금액</label>
-        <CommonInput
-          type="number"
-          placeholder="금액을 입력해주세요 💸"
-          min={1}
-          {...register("amount", {
+        <Controller
+          name="amount"
+          control={control}
+          rules={{
             required: "‼️ 금액을 입력해 주세요.",
             min: { value: 1, message: "‼️ 1원 이상 입력해 주세요." },
-            valueAsNumber: true,
-          })}
+          }}
+          render={({ field }) => (
+            <CommonInput
+              type="text"
+              placeholder="금액을 입력해주세요 💸"
+              inputMode="numeric"
+              value={
+                field.value !== undefined && field.value !== null
+                  ? Number(field.value).toLocaleString("ko-KR")
+                  : ""
+              }
+              onChange={e => {
+                const value = e.target.value.replace(/,/g, "");
+                const number = value.replace(/[^0-9]/g, "");
+                field.onChange(number ? Number(number) : "");
+              }}
+            />
+          )}
         />
         <ValidationError error={errors.amount?.message} />
 
